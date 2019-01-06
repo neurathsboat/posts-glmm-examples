@@ -87,6 +87,7 @@ test:
                   install.packages('checkpoint', repos = cranRepo);
                   library(checkpoint);
                   system("mkdir .checkpoint");
+                  system('ls -la');
                   tryCatch(checkpoint(buildDate0, checkpointLocation = '.checkpoint'), finally = traceback());"
 
     # Test git commit
