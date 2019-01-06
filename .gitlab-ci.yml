@@ -87,7 +87,7 @@ test:
                   install.packages('checkpoint', repos = cranRepo);
                   library(checkpoint);
                   system("mkdir .checkpoint");
-                  tryCatch(checkpoint(buildDate0), finally = traceback());"
+                  tryCatch(checkpoint(buildDate0, checkpointLocation = '.checkpoint'), finally = traceback());"
 
     # Test git commit
     - cd "glmm-examples"
