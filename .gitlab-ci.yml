@@ -84,8 +84,8 @@ test:
     - Rscript -e "setwd('glmm-examples');
                   cranRepo = 'https://cloud.r-project.org/';
                   buildDate0 = '2019-01-01';
-                  install.packages('checkpoint', repos = cranRepo);
-                  system("mkdir .checkpoint");
+                  tryCatch(install.packages('checkpoint', repos = cranRepo), finally = traceback());
+                  system('mkdir .checkpoint');
                   system('ls -la');
                   library(checkpoint);
                   tryCatch(checkpoint(buildDate0, checkpointLocation = '.checkpoint'), finally = traceback());"
