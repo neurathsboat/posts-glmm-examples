@@ -10,6 +10,7 @@ summary = "Linear model examples with R"
 abstract = "Linear model examples with R"
 authors = ["Vassilis Kehayas"]
 hasPlotly = false
+doi = " 10.5281/zenodo.2533324"
 source = "https://gitlab.com/neurathsboat.blog/posts/glmm-examples"
 
 [image]
