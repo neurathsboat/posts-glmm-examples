@@ -2,7 +2,7 @@ stages:
   - test
   - deploy
 
-image: vkehayas/alpine-r-doc-plot
+image: vkehayas/alpine-r-doc-plot:1.1.1
 
 before_script:
   ##
