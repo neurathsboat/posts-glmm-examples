@@ -20,6 +20,7 @@ ReplaceHeader("index.md")
 newFiles = contents0[!grepl(c(".Rmd|header|.Rproj|.R"),
                             contents0,
                             fixed = FALSE)]
-newFilesStr = paste(newFiles, collapse = " ")
-system(paste("rsync -ahvz", newFilesStr, "../"))
-system(paste("rm -rf", newFilesStr))
+lapply(newFiles, function(x) {
+  system(paste("cp -r", x, "../"))
+  system(paste("rm -rf", x))
+})
