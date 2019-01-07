@@ -36,7 +36,7 @@ created and analyzed in R.
 <summary>**Expand code**</summary>
 <p>
 ```{r initialize_stub, eval=FALSE}
-packageList = c("ggplot2", # Plotting, development version 2.2.1.9000
+packageList = c("ggplot2", # Plotting
                 "sjPlot", # Tables for model outputs
                 "cowplot", # Arrange plots 
                 "ggbeeswarm", # Beeswarm plots
@@ -44,15 +44,13 @@ packageList = c("ggplot2", # Plotting, development version 2.2.1.9000
                 "reshape2", # "Melt" matrices
                 "lme4") # Fit mixed models
 ph = lapply(packageList, 
-            require, 
-            character.only = TRUE, 
-            warn.conflicts = FALSE, 
-            quietly = TRUE)
+            require,
+            character.only = TRUE)
 ```
 </p>
 </details>
-```{r initialize, cache=FALSE, echo=FALSE}
-packageList = c("ggplot2", # Plotting, Development version 2.2.1.9000
+```{r initialize, cache=FALSE, echo=FALSE, message=FALSE}
+packageList = c("ggplot2", # Plotting
                 "sjPlot", # Tables for model outputs
                 "cowplot", # Arrange plots 
                 "ggbeeswarm", # Beeswarm plots
@@ -60,10 +58,8 @@ packageList = c("ggplot2", # Plotting, Development version 2.2.1.9000
                 "reshape2", # "Melt" matrices
                 "lme4") # Fit mixed models
 ph = lapply(packageList, 
-            require, 
-            character.only = TRUE, 
-            warn.conflicts = FALSE, 
-            quietly = TRUE)
+            require,
+            character.only = TRUE)
 ```
 
 In the next code block I will create the data:
