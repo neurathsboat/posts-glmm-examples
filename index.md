@@ -10,6 +10,7 @@ summary = "Linear model examples with R"
 abstract = "Linear model examples with R"
 authors = ["Vassilis Kehayas"]
 hasPlotly = false
+source = "https://gitlab.com/neurathsboat.blog/posts/glmm-examples"
 
 [image]
   caption = ""
@@ -31,7 +32,7 @@ created and analyzed in R.
 
 {{% toc %}}
 
-# Construct and inspect the data
+## Construct and inspect the data
 
 <details>
 <summary>**Expand code**</summary>
@@ -170,7 +171,7 @@ It is clear from the plot that stimulation increases
 the average number of spikes per trial
 and the variance of their distribution.
 
-# Linear model
+## Linear model
 
 Let's fit a linear model to investigate:
 
@@ -485,7 +486,7 @@ Even if that was the case, these are considerations
 that should be addressed before running any analyses 
 to avoid any potential bias.
 
-# Linear model with log-transformed response variable
+## Linear model with log-transformed response variable
 
 Another approach would be to apply some transformation to 
 the data to satisfy the assumptions of our model. 
@@ -615,7 +616,7 @@ $$ \mathbb{E}[f(X)] \le f\mathbb({E}[X]) \label{eq:jensen_inequality} $$
 It is not trivial to get unbiased estimates in units of the original scale,
 especially for interval estimates such as confidence intervals.[^1]
 
-# Poisson regression
+## Poisson regression
 
 A better approach is to use a GLM that natively incorporates 
 the structure of of the data at hand.
@@ -733,7 +734,7 @@ with slope $1$ in the left plot of panel **b**
 and their histogram on the right would be flat.
 In this case, we can observe detectable deviations from a uniform distribution.
 
-# Including more variables in the model
+## Including more variables in the model
 
 So far we have kept our models simple to explain some basic ideas.
 Let's now add more of the available variables as parameters in our model.
@@ -1138,7 +1139,7 @@ Although the simulated residuals are now closer to being uniformly distributed
 compared to the simple Poisson regression we ran before, 
 we can still see that they deviate from the expected distribution.
 
-# Mixed-effects Poisson regression
+## Mixed-effects Poisson regression
 
 A parameter that we have not yet considered in our models is 
 that our observations are not independent of each other, 
@@ -1348,7 +1349,7 @@ suggesting that it adequately addresses the structure of the data.
 We have finally arrived at our destination!
 
 
-# Summary
+## Summary
 * Use a model that respects the structure of your data 
 (appropriate distribution assumptions, random effects)
 * Check your model's output by evaluating diagnostic plots
@@ -1356,12 +1357,5 @@ We have finally arrived at our destination!
 different orders of magnitude from each other
 * Use data transformations with care
 
-<div align="left">
-  <sub>
-    The source files for this post can be found in 
-    <a href="https://gitlab.com/vkehayas/notebooks/tree/master/glmm">
-      https://gitlab.com/vkehayas/notebooks/tree/master/glmm</a>.
-  </sub>
-</div>
 
 [^1]: https://stats.stackexchange.com/a/58077/97671
