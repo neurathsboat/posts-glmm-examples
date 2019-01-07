@@ -18,7 +18,7 @@ hasPlotly = false
 
 
 
-In the [companion post]({{< ref "post/glmm-theory.md" >}}), 
+In the [companion post]({{< ref "/post/glmm-theory" >}}), 
 I briefly covered the theory behind linear models.
 In this post, I will go through an example while 
 revisiting some of the principles we described there.
@@ -145,7 +145,8 @@ split into groups based on whether they received stimulation or not.
 my_theme = 
   theme_classic() +
   theme(text = element_text(face = "bold", 
-                            size = 14), 
+                            size = 14,
+                            family = "Noto"), 
         panel.grid.major = element_line())
 
 PlotBeeswarm = function(data, my_theme, ...) {
@@ -294,6 +295,10 @@ kable(anova(aov1),
 
 To see that, compare the F-statistic value between the two outputs.  
 
+<details>
+<summary>**Expand code**</summary>
+<p>
+
 ```r
 modelFStat = data.frame(model = c("Linear model", 
                                   "ANOVA"), 
@@ -307,13 +312,15 @@ kable(modelFStat,
       format = "markdown",
       digits = 3)
 ```
-
+</p>
+</details>
 
 
 |Model        |F-statistic |
 |:------------|:-----------|
 |Linear model |141.625     |
 |ANOVA        |141.625     |
+
 In fact, the R function I used for the ANOVA (`aov`)
 is simply using the function I used to fit the linear model (`lm`)
 under the hood.
@@ -1282,9 +1289,21 @@ to confirm that they are approximately normally distributed.
 ```r
 glmmResiduals = residuals(glmm)
 
-p6a = plot_model(glmm, "diag") +
-  facet_null() +
-  my_theme 
+sjp = plot_model(glmm, "diag")$id 
+
+p6a = ggplot(data = sjp$data,
+             aes(x = nQQ, 
+                 y = y, 
+                 ymin = conf.low, 
+                 ymax = conf.high)) + 
+  geom_linerange() + 
+  geom_point(size = 2) +
+  stat_smooth(method = "lm", 
+              colour = "black") +
+  labs(x = "Standard normal quantiles",
+       y = "Random effect quantiles") +
+  my_theme
+
 p6b = ggplot(data, aes(id, glmmResiduals), guide = "Residuals") +
   geom_hline(yintercept = 0, size = 1, linetype = "dashed", alpha = 0.3) +
   geom_smooth(method = "loess", colour = "black") + 
