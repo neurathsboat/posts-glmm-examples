@@ -113,7 +113,7 @@ deploy:
                   render('glmm-examples.Rmd', output_file = 'index.md');
                   source('ProcessRmd.R')"
     - cd glmm-examples
-    - rsync -ahvz img/glm3_diagnostics-1.png featured.png
+    - cp img/glm3_diagnostics-1.png featured.png
     - git add .
     - git commit -m "CI commit"
     - git push -u origin master
