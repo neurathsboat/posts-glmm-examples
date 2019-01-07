@@ -85,9 +85,9 @@ test:
                   cranRepo = 'https://cloud.r-project.org/';
                   buildDate0 = '2019-01-01';
                   install.packages('checkpoint', repos = cranRepo);
-                  system('mkdir /.checkpoint');
+                  system('mkdir /root/.checkpoint');
                   library(checkpoint);
-                  checkpoint(buildDate0, checkpointLocation = '/')"
+                  checkpoint(buildDate0)"
 
     # Test git commit
     - cd "glmm-examples"
@@ -104,9 +104,9 @@ deploy:
     - Rscript -e "cranRepo = 'https://cloud.r-project.org/';
                   buildDate = '2019-01-05';
                   install.packages('checkpoint', repos = cranRepo);
-                  system('mkdir /.checkpoint');
+                  system('mkdir /root/.checkpoint');
                   library(checkpoint);
-                  checkpoint(buildDate, checkpointLocation = '/');
+                  checkpoint(buildDate);
                   install.packages(c('sjPlot', 'ggbeeswarm', 'DHARMa', 'reshape2', 'lme4'));
                   library(rmarkdown);
                   setwd('glmm-examples/src');
