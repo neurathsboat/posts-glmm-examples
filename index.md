@@ -1066,7 +1066,7 @@ that can be used without the risk of commiting
 
 We can now evaluate the model.
 I will first plot the effect of the variable `temp` on `nSpikes`
-for different combinations of the other two variables, stim and area, 
+for different combinations of the other two variables, `stim` and `area`, 
 with independent Poisson regression fits overlaid for each combination,
 to indicate whether there is any trend in the data.
 
