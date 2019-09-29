@@ -1,8 +1,8 @@
 +++
-title = "Linear models, part II: Examples with R"
+title = "Linear models, Part II: Examples with R"
 
 date = 2018-06-18
-lastmod = 2019-01-06
+lastmod = 2019-09-29
 draft = false
 
 tags = ["statistics", "regression", "mixed_model", "rstats"]
